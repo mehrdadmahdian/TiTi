@@ -1,0 +1,622 @@
+/*
+==============================
+Globals & Initials
+==============================
+ */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/fonts/material/MaterialIcons-Regular.eot');
+    src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url('/fonts/material/MaterialIcons-Regular.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/material/MaterialIcons-Regular.woff2') format('woff2'),
+    url('/fonts/material/MaterialIcons-Regular.woff') format('woff'),
+    url('/fonts/material/MaterialIcons-Regular.ttf') format('truetype'),
+    url('/fonts/material/MaterialIcons-Regular.svg') format('svg');
+}
+
+@font-face {
+    font-family: 'GLYPHICONS Halflings';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/glyphicons/glyphicons-halflings-regular.eot');
+    src: local('GLYPHICONS Halflings'),
+    url('/fonts/glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/glyphicons/glyphicons-halflings-regular.woff2') format('woff2'),
+    url('/fonts/glyphicons/glyphicons-halflings-regular.woff') format('woff'),
+    url('/fonts/glyphicons/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('/fonts/glyphicons/glyphicons-halflings-regular.svg') format('svg');
+}
+
+@font-face {
+    font-family: 'IRANSansWeb(FaNum)';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/iransans/IRANSansWeb(FaNum).eot');
+    src: local('IRANSansWeb(FaNum)'),
+    url('/fonts/iransans/IRANSansWeb(FaNum).eot?#iefix') format('embedded-opentype'),
+    url('/fonts/iransans/IRANSansWeb(FaNum).woff2') format('woff2'),
+    url('/fonts/iransans/IRANSansWeb(FaNum).woff') format('woff'),
+    url('/fonts/iransans/IRANSansWeb(FaNum).ttf') format('truetype');
+}
+
+.no-fouc {
+    display: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, input, table, span, div {
+    font-family: "IRANSansWeb(FaNum)", "Segoe UI", sans-serif;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: rtl;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+    visibility: hidden;
+    vertical-align: middle;
+}
+
+.fonts-loaded .material-icons {
+    visibility: visible;
+}
+
+.fonts-failed .material-icons {
+    visibility: hidden;
+}
+
+/* Layout */
+.ibox-content {
+    border-top-width: 2px;
+    padding: 15px;
+}
+
+.metismenu .material-icons {
+    font-size: 22px;
+}
+
+.metismenu .arrow:before {
+    vertical-align: middle;
+}
+
+.metismenu li ul li {
+    font-size: 12px;
+}
+
+.metismenu li ul li .material-icons {
+    font-size: 20px;
+}
+
+.metismenu .dropdown-menu li a i {
+    margin-left: 10px;
+}
+
+.footer-copyright {
+    margin-bottom: 0;
+}
+
+/* Data Tables */
+.datatable-action {
+    margin: 10px 0;
+}
+
+.table-responsive table th, .table-responsive table td {
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.datatable-action a i:before {
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+table.table-bordered.dataTable th, table.table-bordered.dataTable td {
+    border-right-width: 0;
+    border-left-width: 0;
+}
+
+.dt-buttons {
+    float: left;
+}
+
+.dataTables_info {
+    float: right;
+}
+
+.dataTables_paginate {
+    float: left;
+    margin: 10px 0 !important;
+}
+
+.dt-btn {
+    color: #1d7044;
+    margin-left: 10px;
+    font-size: 16px !important;
+}
+
+.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, .dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+    text-align: center !important;
+    text-indent: 1px !important;
+}
+
+.buttons-excel {
+    background-color: #1d7044;
+    color: #ffffff;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    background-color: #fff;
+}
+
+th.sorting_desc, th.sorting_asc {
+    background-color: #f5f5f6 !important;
+}
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+    color: #cacaca;
+    cursor: not-allowed;
+    background-color: #e4e4e4;
+}
+
+/* Navigation */
+
+.nav-header {
+    padding-top: 20px;
+}
+
+.view-site {
+    width: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-bottom: 1px solid rgba(225, 225, 225, 0.3);
+}
+
+.mini-navbar .view-site {
+    margin-top: 15px;
+}
+
+.site-title {
+    font-size: 10px;
+    line-height: 20px;
+    padding: 5px;
+    text-align: center;
+    color: #a7b1c2;
+}
+
+.avatar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    max-width: 48px;
+    /*border-radius: 50%;*/
+}
+
+.profile-element > span p {
+    text-align: center;
+    color: #e6e6e6;
+}
+
+.nav > li.active {
+    border-right: 6px solid #19aa8d;
+    border-left: none;
+}
+
+.top-bar-item i {
+    font-size: 20px;
+}
+
+.page-info {
+    vertical-align: middle;
+}
+
+.notification-bell {
+    vertical-align: sub;
+}
+
+.top-bar-item .dropdown-menu {
+    animation-duration: 0.5s;
+    animation-name: dropin;
+    transition: all 0.3s;
+}
+
+@keyframes dropin {
+    from {
+        transform: rotateX(-93deg);
+        transform-origin: 50% 0;
+    }
+
+    to {
+        transform: rotateX(0);
+        transform-origin: 50% 0;
+    }
+}
+
+.logo-element {
+    padding: 10px;
+}
+
+/* Forms */
+.admin-form form button {
+    margin-right: 10px;
+}
+
+.admin-form form button i:before {
+    margin-left: 10px;
+}
+
+.admin-form button.dim {
+    box-shadow: inset 0 0 0 #16987e, 0 5px 0 0 #16987e;
+    height: 30px;
+    margin-bottom: 8px !important;
+}
+
+.ibox-content #link {
+    direction: ltr;
+}
+
+/* General */
+.fa {
+    vertical-align: middle;
+}
+
+.project-list .fa {
+    margin-left: 5px;
+}
+
+.dropdown-alerts li:last-child {
+    margin-left: 0 !important;
+}
+
+.dropdown-alerts i {
+    margin-left: 2px;
+}
+
+.nav > li > a i {
+    margin-left: 6px;
+}
+
+.page-info {
+    height: 100%;
+    display: flex;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-right: 0.5em;
+}
+
+#toast-container .toast:before {
+    content: none;
+}
+
+div.dataTables_wrapper div.dataTables_processing {
+    z-index: 99;
+}
+
+body.rtls #toast-container > div {
+    padding: 25px 15px 15px 50px;
+}
+
+body.rtls .toast-close-button {
+    float: right;
+}
+
+.box {
+    margin-bottom: 60px;
+}
+
+table.dataTable a.btn i:before {
+    vertical-align: middle;
+}
+
+/*.datatable-action-wrap {*/
+/*height: 100px;*/
+/*float: right;*/
+/*}*/
+
+#PageInfo i:before {
+    vertical-align: middle;
+}
+
+small, .label {
+    font-family: "IRANSansWeb(FaNum)", sans-serif;
+}
+
+/* Pin Board */
+
+.notes {
+    overflow: auto;
+    margin-bottom: 10px;
+}
+
+ul.notes li div {
+    box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.2);
+}
+
+ul.notes li div small {
+    left: 5px;
+    right: auto;
+}
+
+ul.notes li div a {
+    left: 10px;
+    right: auto;
+}
+
+ul.notes li {
+    margin: 10px 0 50px 40px;
+}
+
+.notes li {
+    animation-delay: 1s;
+}
+
+/* Projects */
+
+.projects-date:before {
+    content: "ایجاد شده در:";
+}
+
+.projects i.fa {
+    margin-left: 2px;
+    vertical-align: middle;
+}
+
+dd.project-people {
+    text-align: right;
+}
+
+.project-manager > img {
+    margin: 10px auto;
+}
+
+.project-priority i:before {
+    margin-left: 5px;
+}
+
+.tag-list {
+    overflow: auto;
+}
+
+.tag-list li {
+    float: right;
+}
+
+.tag-list li a {
+    margin-right: 0 !important;
+    margin-left: 5px;
+}
+
+.tag-list li a i:before {
+    margin-left: 2px;
+}
+
+.project-files {
+    direction: ltr;
+    font-family: "Segoe UI Light", "Segoe UI", serif;
+}
+
+.project-panel .panel-options .nav > li.active {
+    border-right: none;
+}
+
+/* Timeline */
+.timeline-item .date i {
+    border-left: none;
+    border-right: 1px solid #e7eaec;
+}
+
+.timeline-item p {
+    font-size: 12px;
+}
+
+body.rtls .timeline-item .date {
+    text-align: center;
+}
+
+.timeline-time {
+    font-size: 12px;
+}
+
+/* Activity Stream */
+
+.stream-small {
+    font-size: 12px;
+}
+
+.stream-small .activity-date:after {
+    content: " / ";
+}
+
+/* Calendar */
+.fc-icon-left-single-arrow:after, .fc-icon-right-single-arrow:after {
+    vertical-align: middle;
+}
+
+/*.stream-small .label {*/
+/*float: right;*/
+/*margin-right: auto;*/
+/*margin-left: 2px;*/
+/*}*/
+
+/*.stream-small .text-muted {*/
+/*float: right;*/
+/*}*/
+
+/* Typography */
+#side-menu span {
+    font-weight: 100;
+}
+
+/* Login */
+.auth-section {
+    direction: rtl;
+}
+
+.help-block {
+    color: #e74c3c;
+}
+
+.login-logo {
+    margin: 10% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-logo img {
+    z-index: -1;
+    max-width: 100px;
+}
+
+.auth-section h1, .auth-section h2, .auth-section h3, .auth-section h4, .auth-section h5, .auth-section h6, .auth-section p {
+    font-weight: normal;
+    color: #e6e6e6;
+}
+
+.auth-section input {
+    direction: ltr;
+}
+
+.loginscreen.middle-box {
+    width: 350px;
+}
+
+.forget-password {
+    margin-bottom: 10px;
+}
+
+.forget-password small {
+    font-size: 12px;
+}
+
+.remember-me small {
+    color: #E6E6E6;
+    font-weight: 100;
+    user-select: none;
+    vertical-align: middle;
+}
+
+.create-account-hint {
+    border-top: 1px solid rgba(100, 100, 100, 0.5);
+    margin-top: 20px;
+    padding-top: 5px;
+}
+
+.auth-section button.dim {
+    margin-right: 0;
+    box-shadow: inset 0 0 0 #16987e, 0 5px 0 0 #16987e;
+    font-weight: 100;
+}
+
+.auth-section button.dim:active {
+    box-shadow: inset 0 0 0 #16987e, 0 2px 0 0 #16987e;
+}
+
+.auth-section .copyright {
+    direction: ltr;
+    font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    font-weight: 100;
+}
+
+.auth-section .sign {
+    margin-top: 40px;
+}
+
+.auth-section .sign a {
+    color: #00adee;
+}
+
+.btn-back i:before {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.auth-section a:not(.btn) {
+    transition: all 100ms ease-in;
+}
+
+.auth-section a:not(.btn):hover, a:not(.btn):focus {
+    color: #00adee;
+}
+
+/*.action-box {*/
+/*min-height: 40px;*/
+/*margin-bottom: 50px;*/
+/*}*/
+
+/*
+==============================
+Layout
+==============================
+ */
+.menu-search {
+    margin: 10px;
+}
+
+#searchResult {
+    display: none;
+}
+
+#searchResult > a {
+    cursor: default;
+    user-select: none;
+}
+
+#searchResult > a:hover {
+    background-color: #42444f;
+}
+
+/*
+jQuery Query Builder
+*/
+.rules-group-header > .group-actions {
+    float: right !important;
+}
+
+.rules-group-header > .group-actions button {
+    float: left !important;
+}
+
+@media (max-width: 768px) {
+    body:not(.mini-navbar) {
+        background-color: #2f4050;
+    }
+
+    .dataTables_info {
+        float: none;
+    }
+
+    .dataTables_paginate {
+        float: none;
+        margin-right: 5px !important;
+    }
+}
+
+@media (max-width: 425px) {
+    .loginscreen.middle-box {
+        width: 280px;
+    }
+
+    p {
+        font-size: smaller;
+    }
+}

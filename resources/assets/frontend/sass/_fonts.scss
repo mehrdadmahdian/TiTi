@@ -1,0 +1,62 @@
+/*
+Fonts
+
+Cross-Browser/Cross-OS @font-face rule
+font-family = font file name
+==================================================
+*/
+
+// Iran Sans 4 (Regular)
+@font-face {
+  font-family: 'IRANSansWeb';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/iransans/IRANSansWeb.eot');
+  src: local('IRANSansWeb)'),
+  url('../fonts/iransans/IRANSansWeb.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/iransans/IRANSansWeb.woff2') format('woff2'),
+  url('../fonts/iransans/IRANSansWeb.woff') format('woff'),
+  url('../fonts/iransans/IRANSansWeb.ttf') format('truetype');
+}
+
+// Iran Sans 4 (Regular - FaNum)
+@font-face {
+  font-family: 'IRANSansWeb(FaNum)';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/iransans/IRANSansWeb(FaNum).eot');
+  src: local('IRANSansWeb(FaNum)'),
+  url('../fonts/iransans/IRANSansWeb(FaNum).eot?#iefix') format('embedded-opentype'),
+  url('../fonts/iransans/IRANSansWeb(FaNum).woff2') format('woff2'),
+  url('../fonts/iransans/IRANSansWeb(FaNum).woff') format('woff'),
+  url('../fonts/iransans/IRANSansWeb(FaNum).ttf') format('truetype');
+}
+
+// Material Icons
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/material/MaterialIcons-Regular.eot');
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url('../fonts/material/MaterialIcons-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/material/MaterialIcons-Regular.woff2') format('woff2'),
+  url('../fonts/material/MaterialIcons-Regular.woff') format('woff'),
+  url('../fonts/material/MaterialIcons-Regular.ttf') format('truetype'),
+  url('../fonts/material/MaterialIcons-Regular.svg') format('svg');
+}
+
+// Font Awesome
+@font-face {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/fontawesome/fontawesome-webfont.eot');
+  src: local('FontAwesome'),
+  url('../fonts/fontawesome/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/fontawesome/fontawesome-webfont.woff2') format('woff2'),
+  url('../fonts/fontawesome/fontawesome-webfont.woff') format('woff'),
+  url('../fonts/fontawesome/fontawesome-webfont.ttf') format('truetype'),
+  url('../fonts/fontawesome/fontawesome-webfont.svg') format('svg');
+}

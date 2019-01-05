@@ -1,0 +1,100 @@
+#ui-datepicker-div{
+	z-index: 999 !important;
+}
+.ui-widget-content{
+	border-radius: 0;
+}
+.ui-datepicker{
+	width: 260px;
+	font-family: 'IRANSansWeb', 'IRANSans';
+	font-size: 14px;
+	
+}
+.ui-datepicker a:hover{
+	text-decoration: none !important;	
+}
+.ui-datepicker .ui-datepicker-header{
+	height: 48px;
+	line-height: 38px;
+	padding: 0;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+	color: #fff !important;
+}
+.ui-datepicker-title .select2-container{
+	text-align: right;
+}
+.ui-datepicker-title .select2-container.ui-datepicker-month,
+.ui-datepicker-title select.ui-datepicker-month{
+	width: 105px;
+	margin-left: 10px;
+}
+.ui-datepicker-title .select2-container.ui-datepicker-year,
+.ui-datepicker-title select.ui-datepicker-year{
+	width: 75px; 
+}
+.ui-datepicker-title .select2-container .select2-choice .select2-arrow{
+	width: 20px;
+}
+.ui-datepicker-title .select2-container .select2-choice .select2-arrow b{
+	border-width: 5px 5px 0;
+	top: 14px;
+}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{
+	text-shadow: none;
+	font-size: 20px;
+	top: 0;
+	text-decoration: none !important;
+}
+.ui-datepicker-header .ui-state-hover{
+	background-color: transparent;
+}
+.ui-datepicker-rtl .ui-datepicker-next,
+.ui-datepicker-rtl .ui-datepicker-prev{
+	height: 47px;
+	line-height: 47px;
+	padding: 0;
+	margin: 0;
+	width: 35px;
+}
+.ui-datepicker-rtl .ui-datepicker-next{
+	left: 0;
+}
+.ui-datepicker-rtl .ui-datepicker-prev{
+	right: 0;
+}
+.ui-datepicker .ui-datepicker-prev i,
+.ui-datepicker .ui-datepicker-next i{
+	vertical-align: middle;
+}
+.ui-datepicker .ui-datepicker-title{
+	font-weight: normal;
+	line-height: inherit;
+	margin: 0 auto;
+	color: #414042;
+	font-size: 16px;
+	padding: 4px 0;
+}
+.ui-datepicker th{
+	font-weight: normal;
+	color: #00508F;
+}
+.ui-datepicker td{
+	text-align: center;
+	padding: 5px 0;
+}
+.ui-datepicker-calendar thead tr{
+	border-bottom: 1px solid #ddd;
+}
+.ui-datepicker-today .ui-state-default{
+	background-color: #b288b9;
+	color: #fff !important;
+	border-radius: 0;
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default{
+	color: #808285;
+	font-size: 14px;
+	border-radius: 0;
+}

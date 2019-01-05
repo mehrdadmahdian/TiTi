@@ -1,0 +1,20 @@
+/*
+Layouts
+
+.layout-x where x is the name of Blade layout
+==================================================
+*/
+
+.main {
+  min-height: 400px;
+}
+
+.layout-fix-sidebar .main {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.layout-half-width .main {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}

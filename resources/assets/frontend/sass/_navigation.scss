@@ -1,0 +1,38 @@
+/*
+Navigation
+==================================================
+*/
+
+/*
+Sticky Navigation Bar
+----------------------------------
+*/
+
+.navbar-main {
+  transition: all 0.4s ease;
+}
+
+.navbar-main.affix {
+  width: 100%;
+  height: 50px;
+  background-color: #3c4766;
+  z-index: 999;
+}
+
+.navbar-main.affix .logo-wrap, .navbar-main.affix .navbar-menu {
+  display: block;
+  line-height: 50px;
+  height: 50px;
+}
+
+.navbar-main.affix .logo {
+  width: 80%;
+}
+
+.navbar-main.affix .tagline-wrap h1, .navbar-main.affix .tagline-wrap h2 {
+  display: inline-block;
+}
+
+.navbar-main.affix .img-alt {
+  display: block;
+}
