@@ -22,4 +22,24 @@ class TwitterAccount extends Model
         return $this->belongsToMany(TelegramChannel::Class);
     }
 
+    public function getApiSetting(){
+        //dd(isset($this->application_consumer_sercret));
+        if (
+            ($this->application_oauth_access_token) &&
+            ($this->application_oauth_access_token_secret) &&
+            ($this->application_consumer_key) &&
+            ($this->application_consumer_secret)
+        ) {
+            return [
+                'oauth_access_token' => $this->application_oauth_access_token,
+                'oauth_access_token_secret' => $this->application_oauth_access_token_secret,
+                'consumer_key' => $this->application_consumer_key,
+                'consumer_secret' => $this->application_consumer_secret,
+            ];
+        } else {
+            return null;
+        }
+
+    }
+
 }

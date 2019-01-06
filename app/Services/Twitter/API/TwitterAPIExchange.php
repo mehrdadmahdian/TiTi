@@ -2,6 +2,8 @@
 
 namespace App\Services\Twitter\API;
 
+use InvalidArgumentException;
+
 /**
  * Twitter-API-PHP : Simple PHP wrapper for the v1.1 API
  *
@@ -83,7 +85,6 @@ class TwitterAPIExchange
      */
     public function __construct(array $settings)
     {
-
         if (!function_exists('curl_init'))
         {
             throw new RuntimeException('TwitterAPIExchange requires cURL extension to be loaded, see: http://curl.haxx.se/docs/install.html');
@@ -102,7 +103,6 @@ class TwitterAPIExchange
         $this->consumer_key = $settings['consumer_key'];
         $this->consumer_secret = $settings['consumer_secret'];
 
-        $this->proxy_servers = config('app.proxy_servers');
     }
 
     /**
@@ -301,12 +301,6 @@ class TwitterAPIExchange
             CURLOPT_URL => $this->url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_TIMEOUT => 10,
-            // my
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_PROXY => $this->proxy_servers[0]['ip'],
-            CURLOPT_PROXYPORT => $this->proxy_servers[0]['port'],
-            CURLOPT_PROXYUSERNAME => $this->proxy_servers[0]['username'],
-            CURLOPT_PROXYPASSWORD => $this->proxy_servers[0]['password'],
         );
 
         if (!is_null($postfields))

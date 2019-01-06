@@ -9,9 +9,9 @@
 namespace App\Twitter\Exception;
 
 
-class SampleException extends \Exception
+class FaultyTwitterAccount extends \Exception
 {
 
-    protected $message = 'exception message';
+    protected $message = 'twitter application account info is incomplete';
 
 }
