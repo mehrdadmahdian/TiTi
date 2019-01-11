@@ -6,16 +6,16 @@
  * Time: 6:53 PM
  */
 
-namespace App\Twitter\Collector;
+namespace App\Twitter\Recorder;
 
 use App\Exceptions\FactoryException;
-use App\Twitter\Collector\Type\TypenameProcessor;
+use App\Twitter\Recorder\Type\TypenameRecorder;
 
-class TweetCollectorFactory
+class TweetRecorderFactory
 {
 
     protected static $classMap = [
-        'timeline' => TypenameProcessor::class,
+        'timeline' => TypenameRecorder::class,
     ];
 
     public static function getClassMap(): array

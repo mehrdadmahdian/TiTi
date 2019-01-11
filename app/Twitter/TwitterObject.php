@@ -11,30 +11,36 @@ namespace App\Twitter;
 
 use App\Models\TwitterAccount;
 use App\Services\Twitter\API\TwitterAPIExchange;
-use App\Twitter\Collector\TweetCollectorFactory;
-use App\Twitter\Exception\FaultyTwitterAccount;
+use App\Twitter\Collector\TweetRecorderFactory;
+use App\Twitter\Exception\TwitterObjectException;
+use App\Twitter\PointCalculator\PointCalculator;
 
 class TwitterObject
 {
     protected $twitterAccount;
     protected $collector;
     protected $apiInterface;
+    protected $fetchedTweets;
+    protected $setting;
 
-    public function __construct(TwitterAccount $twitterAccount)
+    public function __construct()
     {
-        $this->setAccount($twitterAccount);
+    }
+
+    public function setProperties($setting): void
+    {
+        $this->setAccount($setting['twitterAccount']);
+
+        if (isset($setting['collector']['type']))
+            $this->setCollector($setting['collector']['type']);
+
         $this->setApiInterface();
     }
 
-    public function setApiInterface()
+    protected function setApiInterface(): void
     {
         $apiSetting = $this->twitterAccount->getApiSetting();
         $this->apiInterface  = $apiSetting ? new TwitterAPIExchange($apiSetting) : null;
-    }
-
-    public function setAccount(TwitterAccount $twitterAccount)
-    {
-        $this->twitterAccount = $twitterAccount;
     }
 
     public function getApiInterface()
@@ -42,9 +48,14 @@ class TwitterObject
         return $this->apiInterface;
     }
 
-    public function setCollector($collectorType)
+    protected function setAccount(TwitterAccount $twitterAccount)
     {
-        $this->collector = TweetCollectorFactory::factory($collectorType);
+        $this->twitterAccount = $twitterAccount;
+    }
+
+    protected function setCollector($collectorType)
+    {
+        $this->collector = TweetRecorderFactory::factory($collectorType, $this);
     }
 
     public function getCollector()
@@ -52,10 +63,12 @@ class TwitterObject
         return $this->collector;
     }
 
-    public function collectTweets($collectorType)
+    public function fetchAndSave()
     {
-        $this->setCollector($collectorType);
-        return $this->collector->call();
+        $this->fetchedTweets = $this->collector->call();
+        $fetchedTweetsCollection = collect($this->fetchedTweets);
+        dd($fetchedTweetsCollection);
+        PointCalculator::build()->analyzeTweets();
+        return  $this->fetchedTweets;
     }
-
 }

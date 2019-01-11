@@ -20,3 +20,31 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return redirect()->route('admin.dashboard');
 });
+Route::get('/test', function () {
+    $setting = [
+        'twitterAccount' => App\Models\TwitterAccount::find(1),
+        'collector' => [
+            'type' => 'timeline',
+            'parameters' => [
+
+            ]
+        ],
+        'processor' => [
+            'type' => 'timeline',
+            'parameters' => [
+
+            ]
+        ],
+        'recorder' => [
+            'type' => '',
+            'parameters' => [
+
+            ]
+        ]
+    ];
+    try {
+        return App\Twitter\TwitterObjectBuilder::build($setting)->fetchAndSave();
+    } catch (\Exception $e) {
+        return dd($e->getMessage());
+    }
+});

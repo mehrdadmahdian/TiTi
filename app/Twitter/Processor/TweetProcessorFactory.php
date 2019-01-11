@@ -6,12 +6,12 @@
  * Time: 6:53 PM
  */
 
-namespace App\Twitter\Collector;
+namespace App\Twitter\Processor;
 
 use App\Exceptions\FactoryException;
-use App\Twitter\Collector\Type\TypenameProcessor;
+use App\Twitter\Processor\Type\TypenameProcessor;
 
-class TweetCollectorFactory
+class TweetProcessorFactory
 {
 
     protected static $classMap = [
