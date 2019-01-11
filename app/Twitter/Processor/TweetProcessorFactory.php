@@ -9,13 +9,13 @@
 namespace App\Twitter\Processor;
 
 use App\Exceptions\FactoryException;
-use App\Twitter\Processor\Type\TypenameProcessor;
+use App\Twitter\Processor\Type\NormalProcessor;
 
 class TweetProcessorFactory
 {
 
     protected static $classMap = [
-        'timeline' => TypenameProcessor::class,
+        'normal' => NormalProcessor::class,
     ];
 
     public static function getClassMap(): array

@@ -8,7 +8,9 @@
 
 namespace App\Twitter\Processor;
 
+use Illuminate\Support\Collection;
+
 interface TweetProcessorInterface
 {
-
+    public function process($tweetCollection):Collection;
 }

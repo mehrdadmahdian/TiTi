@@ -9,13 +9,13 @@
 namespace App\Twitter\Recorder;
 
 use App\Exceptions\FactoryException;
-use App\Twitter\Recorder\Type\TypenameRecorder;
+use App\Twitter\Recorder\Type\RecordAllRecorder;
 
 class TweetRecorderFactory
 {
 
     protected static $classMap = [
-        'timeline' => TypenameRecorder::class,
+        'record-all' => RecordAllRecorder::class,
     ];
 
     public static function getClassMap(): array

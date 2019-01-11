@@ -28,11 +28,13 @@ class TwitterObjectBuilder
             throw new TwitterObjectException(
                 'Missing TwitterAccount in Setting Array',
                 'BuilderValidation',
-                trans('exception.message.not_accepted_twitter_account')
+                trans('exception.message.incomplete_twitter_account')
             );
         }
 
         $object = new TwitterObject();
         $object->setProperties($setting);
+
+        return $object;
     }
 }

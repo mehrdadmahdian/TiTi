@@ -6,12 +6,13 @@
  * Time: 5:54 PM
  */
 
-namespace App\Twitter\Processor\Type;
+namespace App\Twitter\Collector\Type;
 
-use App\Twitter\Processor\BaseTweetProcessor;
-use App\Twitter\Processor\TweetProcessorInterface;
+use App\Twitter\Collector\BaseTweetCollector;
+use App\Twitter\Collector\TweetCollectorInterface;
+use Illuminate\Support\Collection;
 
-class TypenameProcessor extends BaseTweetProcessor implements TweetProcessorInterface
+class TimelineCollector extends BaseTweetCollector implements TweetCollectorInterface
 {
     public $method = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
     public $basicQueryParam = [
@@ -24,7 +25,7 @@ class TypenameProcessor extends BaseTweetProcessor implements TweetProcessorInte
         $this->twitterObject = $twitterObject;
     }
 
-    public function setCollectorSetting()
+    public function setCollectorParameters()
     {
     }
 
@@ -33,9 +34,9 @@ class TypenameProcessor extends BaseTweetProcessor implements TweetProcessorInte
         return 'string'; //todo
     }
 
-    public function call()
+    public function callUp(): Collection
     {
-        $getFields = $this->buildQueryParam();
+        //$getFields = $this->buildQueryParam();
         //$this->twitterObject->getApiInterface()->request($this->method, $getFields);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'http://mehrdadmahdian.ir/api/v1/fetch-timeline/tweetfeed');
@@ -43,7 +44,16 @@ class TypenameProcessor extends BaseTweetProcessor implements TweetProcessorInte
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $res = curl_exec($ch);
         curl_close($ch);
-        return json_decode($res);
 
+        if (json_decode($res)->status) {
+            $tweets = array();
+            foreach (json_decode($res)->data as $tweet) {
+                $tweets[] = (isset($tweet->retweeted_status))? $tweet->retweeted_status : $tweet;
+            }
+        } else {
+            $tweets = collect([]);
+        }
+        $this->twitterObject->calledTweets = collect($tweets);
+        return $this->twitterObject->calledTweets;
     }
 }

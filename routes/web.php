@@ -30,20 +30,45 @@ Route::get('/test', function () {
             ]
         ],
         'processor' => [
-            'type' => 'timeline',
+            'type' => 'normal',
             'parameters' => [
+                'filters' => [
+                    'words' => [
+
+                    ],
+                ],
+                'scoring' => [
+                    'type' => 'byCoefficient',
+                    'coefficients' => [
+                        'photo' => 1,
+                        'video' => 1,
+                        'gif' => 1,
+                        'retweetCount' => 1,
+                        'favoriteCount' => 1,
+                        //'replyCount' => 1,
+                        'favoritedByMe' => 1,
+                        'retweetedByMe' => 1,
+                        'isVerified' => 1,
+                        'textSize' => 1,
+                    ]
+                ],
 
             ]
         ],
         'recorder' => [
-            'type' => '',
+            'type' => 'record-all', //
+            //'type' => 'save-top-as-publishable', //
+            //'type' => 'save-all', //
+            //'type' => 'save-top', //
             'parameters' => [
-
+                'topCount' => 20,
             ]
         ]
     ];
+
     try {
-        return App\Twitter\TwitterObjectBuilder::build($setting)->fetchAndSave();
+        $twitterObject =  App\Twitter\TwitterObjectBuilder::build($setting);
+        $twitterObject->periodicCall();
     } catch (\Exception $e) {
         return dd($e->getMessage());
     }

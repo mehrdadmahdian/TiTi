@@ -8,7 +8,10 @@
 
 namespace App\Twitter\Collector;
 
+use Illuminate\Support\Collection;
+
 interface TweetCollectorInterface
 {
+    public function callUp(): Collection;
 
 }

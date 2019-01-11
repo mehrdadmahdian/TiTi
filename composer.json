@@ -44,7 +44,8 @@
             "database/factories"
         ],
         "files": [
-            "app/Helpers/dpaHelpers.php"
+            "app/Helpers/dpaHelpers.php",
+            "app/Helpers/Helpers.php"
         ]
     },
     "autoload-dev": {

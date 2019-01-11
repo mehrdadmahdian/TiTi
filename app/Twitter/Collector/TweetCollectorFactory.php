@@ -9,13 +9,13 @@
 namespace App\Twitter\Collector;
 
 use App\Exceptions\FactoryException;
-use App\Twitter\Collector\Type\TypenameProcessor;
+use App\Twitter\Collector\Type\TimelineCollector;
 
 class TweetCollectorFactory
 {
 
     protected static $classMap = [
-        'timeline' => TypenameProcessor::class,
+        'timeline' => TimelineCollector::class,
     ];
 
     public static function getClassMap(): array

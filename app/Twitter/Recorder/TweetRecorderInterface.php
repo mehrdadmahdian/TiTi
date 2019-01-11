@@ -10,5 +10,5 @@ namespace App\Twitter\Recorder;
 
 interface TweetRecorderInterface
 {
-
+    public function record(): void;
 }
