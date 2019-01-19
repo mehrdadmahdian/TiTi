@@ -14,7 +14,8 @@ class AdminSeeder extends Seeder
         $role = \Spatie\Permission\Models\Role::firstOrCreate([
             'name' => 'Admin'
         ]);
-        $user = \App\User::create([
+        $user = \App\User::firstOrCreate(
+            ['email' => 'admin@admin.com'],[
             'name' => 'مدیر',
             'email' => 'admin@admin.com',
             'password' => bcrypt('123456'),

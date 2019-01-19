@@ -11,10 +11,10 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name(
 Route::get('login', '\App\Http\Controllers\Auth\LoginController@login')->name('logout')->middleware(['web']);
 
 Route::group([
-    'prefix' => config('cruds.admin_prefix', 'admin'),
-    'as' => config('cruds.admin_prefix', 'admin') . '.',
+    'prefix' => 'admin',
+    'as' => 'admin.',
     'middleware' => ['web', 'auth', 'permission:admin-login'],
-    'namespace' => config('cruds.admin_prefix', 'Admin')
+    'namespace' => 'admin'
 ], function () {
     foreach (config('cruds.routes', []) as $route) {
         $options = [
@@ -26,6 +26,7 @@ Route::group([
             :BaseAdminController::class;
 
         Route::resource($route['name'], $controller, $options);
+        Route::get($route['name'].'/datatable/getData', $controller.'@getDatatable')->name($route['name'].'.datatable.getData');
     }
     Route::get('/','DashboardController@index')->name('dashboard');
 });

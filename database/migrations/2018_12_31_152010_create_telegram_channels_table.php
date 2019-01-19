@@ -17,7 +17,7 @@ class CreateTelegramChannelsTable extends Migration
             $table->increments('id');
             $table->string('channel_id');
             $table->string('name')->nullable()->default(null);
-            $table->string('description')->nullable()->default(null);
+            $table->text('description')->nullable()->default(null);
             $table->integer('active')->default(1);
 
             $table->timestamps();

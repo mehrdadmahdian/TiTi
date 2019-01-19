@@ -76,7 +76,6 @@ class TwitterObject
         if (isset($recorderArray['type']))
             $this->recorder = TweetRecorderFactory::factory($recorderArray['type'], $this);
     }
-
     ////////////////////////////////////////////////////////////////
     public function getCollector(): TweetCollectorInterface
     {
@@ -97,7 +96,6 @@ class TwitterObject
     {
         return $this->apiInterface;
     }
-
     /////////////////////////////////////////////////////////////////
     public function periodicCall()
     {
@@ -109,7 +107,7 @@ class TwitterObject
 
             return outputJsoner(true, trans('twitterObject.action.message.successful_periodic_call'));
         } catch (\Exception $e) {
-            dd($e->getMessage(), $e->getTraceAsString());
+            //dd($e->getMessage(), $e->getTraceAsString());
             return outputJsoner(false, $e->getMessagesArray(), []);
         }
     }

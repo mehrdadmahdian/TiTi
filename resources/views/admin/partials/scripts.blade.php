@@ -1,3 +1,5 @@
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('bundle/backend/js/core.js') }}"></script>
 <script src="{{ asset('bundle/backend/js/plugins.js') }}"></script>
 <script src="{{ asset('bundle/backend/ckeditor/ckeditor.js') }}"></script>

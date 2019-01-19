@@ -17,5 +17,6 @@ class RecordAllRecorder extends BaseTweetRecorder implements TweetRecorderInterf
 
     public function record(): void
     {
+
     }
 }

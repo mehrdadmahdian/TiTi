@@ -11,6 +11,9 @@
 |
 */
 
+use App\User;
+use Yajra\DataTables\Facades\DataTables;
+
 include('panelRoutes.php');
 
 Route::auth();
@@ -20,6 +23,16 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return redirect()->route('admin.dashboard');
 });
+
+Route::group(['prefix' => 'admin' , 'as' => 'admin.', 'namespace' => 'admin'], function(){
+    Route::group(['prefix' => 'users' , 'as' => 'users.'], function(){
+        Route::get('datatable', 'UserController@datatable')->name('datatable');
+    });
+    Route::group(['prefix' => 'telegram_channels' , 'as' => 'telegram_channels.'], function(){
+        Route::get('setting/{telegram_channel_id}', 'TelegramChannelController@getSetting')->name('setting');
+    });
+});
+/*************************************************************************************************/
 Route::get('/test', function () {
     $setting = [
         'twitterAccount' => App\Models\TwitterAccount::find(1),
@@ -55,7 +68,7 @@ Route::get('/test', function () {
 
             ]
         ],
-        'recorder' => [
+        'recorder'  => [
             'type' => 'record-all', //
             //'type' => 'save-top-as-publishable', //
             //'type' => 'save-all', //

@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
-class UserController extends BaseAdminController
+class DatatableController extends BaseAdminController implementes Datatabaleable
 {
-    public function index(){
-        return view('admin.users.index');
+    public function getIndex()
+    {
+        return view('admin.datatables.index');
+    }
+
+    public function getDatatable()
+    {
+        return UserDatatable::datatable();
     }
 }

@@ -49,6 +49,5 @@ class NormalProcessor extends BaseTweetProcessor implements TweetProcessorInterf
        } else {
            return 0;
        }
-
     }
 }
