@@ -45,6 +45,19 @@ return [
             'icon' => 'material-icons',
             'li_text'=>'lock',
             'order' => 3
+        ],[
+            'name' => 'twitter_accounts',
+            'controller' => TwitterAccountController::class,
+            'datatable_class' =>null,
+            'except' => [],
+            'permission' => 'manage-twitter-accounts',
+            'permission_name' => 'مدیریت اکانت های توییتر',
+            'form_class' => null,
+            'model_class' => null,
+            'title' => 'اکانت های توییتر',
+            'icon' => 'material-icons',
+            'li_text'=>'lock',
+            'order' => 4
         ],
 
     ]

@@ -9,6 +9,12 @@
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout')->middleware(['web']);
 Route::get('login', '\App\Http\Controllers\Auth\LoginController@login')->name('logout')->middleware(['web']);
+Route::get('/', function () {
+    return redirect()->route('admin.dashboard');
+});
+Route::get('/home', function () {
+    return redirect()->route('admin.dashboard');
+});
 
 Route::group([
     'prefix' => 'admin',

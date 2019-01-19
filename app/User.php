@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\TelegramChannel;
+use App\Models\TwitterAccount;
 use App\Traits\PersianDateTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,16 +37,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function roles()
+    /*public function roles()
     {
         return $this->morphToMany(Role::class ,'model', 'model_has_roles');
+    }*/
+
+    public function telegramChannels()
+    {
+        return $this->belongsToMany(TelegramChannel::class, 'user_telegram_channels');
     }
 
-    public function telegramChannels(){
-        return $this->hasMany(TelegramChannel::class);
-    }
-
-    public function twitterAccounts(){
-        return $this->hasMany(TwitterAccount::class);
+    public function twitterAccounts()
+    {
+        return $this->belongsToMany(TwitterAccount::class, 'user_twitter_accounts');
     }
 }
