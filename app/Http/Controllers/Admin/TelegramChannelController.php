@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\TelegramChannel\StoreTwitterAccount;
-use App\Http\Requests\TelegramChannel\UpdateTwitterAccount;
+use App\Http\Requests\TwitterAccount\StoreTwitterAccount;
+use App\Http\Requests\TwitterAccount\UpdateTwitterAccount;
 use App\Models\TelegramChannel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('page-title')
-    کاربران
+    نقش های کاربری
 @endsection
 
 @push('head')
@@ -16,13 +16,17 @@
             width: 100%;
             margin: 0 auto;
         }
+
+        .select2-container{
+            z-index:100000;
+        }
     </style>
 @endpush
 
 @section('content')
     <div class="wrapper wrapper-content">
         <a class="btn btn-success btn-sm" data-toggle="modal" href="#modal-create">
-            <i class="fa fa-plus-circle"></i> ایجاد کاربر جدید
+            <i class="fa fa-plus-circle"></i> ایجاد نقش کاربری جدید
         </a>
         <div class="row m-t-lg animated fadeInUp">
             <div class="col-lg-12">
@@ -32,7 +36,6 @@
                             <thead>
                             <tr>
                                 <td>نام</td>
-                                <td>ایمیل</td>
                             </tr>
                             </thead>
                         </table>
@@ -42,12 +45,10 @@
         </div>
     </div>
 
-
-    @include('admin.users.create-modal')
-    @include('admin.users.edit-modal')
-
+    @include('admin.roles.create-modal')
+    @include('admin.roles.edit-modal')
 @endsection
 
 @push('scripts')
-    @include('admin.users.index-script')
+    @include('admin.roles.index-script')
 @endpush
