@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\DB;
 
 class TelegramChannelController extends BaseAdminController
 {
+    //permissions to routes
+    //permission to access tch_id
     public function index(Request $request)
     {
 
@@ -45,5 +47,13 @@ class TelegramChannelController extends BaseAdminController
     public function update(UpdateTwitterAccount $request)
     {
 
+    }
+
+    public function getSettingForm()
+    {
+        $telegramChannel = TelegramChannel::find(request()->segments()[2]);
+        $twitterAccounts = Auth::user()->twitterAccounts;
+
+        return view('admin.telegram-channels.setting.form', compact('telegramChannel', 'twitterAccounts'));
     }
 }

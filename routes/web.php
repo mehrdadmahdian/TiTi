@@ -9,7 +9,7 @@ Route::group(['prefix' => 'admin' , 'as' => 'admin.', 'namespace' => 'admin'], f
         Route::get('datatable', 'UserController@datatable')->name('datatable');
     });
     Route::group(['prefix' => 'telegram_channels' , 'as' => 'telegram_channels.'], function(){
-        Route::get('setting/{telegram_channel_id}', 'TelegramChannelController@getSettingForm')->name('setting');
+        Route::get('/{TelegramChannel}/setting/form', 'TelegramChannelController@getSettingForm')->name('setting.showForm');
     });
 });
 /*************************************************************************************************/

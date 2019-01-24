@@ -7,6 +7,8 @@
 {{--<script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>--}}
 @stack('scripts')
 <script src="{{ asset('bundle/backend/js/script.js') }}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.js"></script>
+
 <script type="text/javascript">
     setTimeout(function () {
         toastr.options = {
@@ -36,5 +38,8 @@
 
     duplicate('#logs fieldset:first', '#addLog', '.RemoveItem', {{ (isset($medias) ? count($medias) : 0) + 1 }}, '.file-url');
 
+</script>
+<script type="text/javascript">
+    $(".tm-input").tagsManager();
 </script>
 

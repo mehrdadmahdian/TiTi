@@ -1,0 +1,10 @@
+input.form-control {
+    height: 28px;
+    border-radius :3px;
+}
+
+.nav-link {
+    min-height: 60px;
+    text-align: left;
+    padding: 20px 0px;
+}
