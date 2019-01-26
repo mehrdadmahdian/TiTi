@@ -2,7 +2,7 @@
     <div class="form-group row">
         <label class="col-sm-4 col-form-label">اکانت توییتر متصل به کانال</label>
         <div class="col-sm-8">
-            <select type="text" class="form-control select2">
+            <select type="text" class="form-control select2" name="setting[basic_twitter][linked_account]">
                 @foreach($twitterAccounts as $ta)
                     <option value="{{$ta->id}}">{{$ta->name}}</option>
                 @endforeach
@@ -19,7 +19,7 @@
     <div class="form-group row">
         <label class="col-sm-4 col-form-label">بازه ی زمانی فراخوانی</label>
         <div class="col-sm-8">
-            <input type="number" min="1" max="60" class="form-control">
+            <input type="number" min="1" max="60" class="form-control" name="setting[basic_twitter][fetch_period]">
             <span class="form-text m-b-none">ترجیح می دهید هر چند دقیقه یکبار اکانت توییتر شما فراخوانی شود؟</span>
         </div>
     </div>

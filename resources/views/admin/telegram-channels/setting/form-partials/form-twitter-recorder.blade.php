@@ -2,7 +2,7 @@
     <div class="form-group row">
         <label class="col-sm-4 col-form-label">نحوه ی ذخیره سازی اطلاعات فراخوانی شده</label>
         <div class="col-sm-8">
-            <select type="text" class="form-control select2">
+            <select type="text" class="form-control select2" name="setting[twitter_recorder][type]">
                 @foreach(\App\Twitter\Recorder\TweetRecorderFactory::getClassMap() as $key => $value)
                     <option value="{{$key}}">{{trans('twitter.recorder.type.'.$key)}}</option>
                 @endforeach

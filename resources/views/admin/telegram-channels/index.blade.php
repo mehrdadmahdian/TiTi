@@ -24,7 +24,7 @@
                                 <p class="font-bold">{{$telegramChannel->description}}</p>
 
                                 <div class="text-center">
-                                    <a href="{{route('admin.telegram_channels.setting.showForm', ['TelegramChannel'=> $telegramChannel->id])}}"
+                                    <a href="{{route('admin.telegram_channels.setting.getForm', ['id'=> $telegramChannel->id])}}"
                                        class="btn btn-xs btn-white">
                                         <i class="fa fa-gears"></i>
                                         تنظیمات

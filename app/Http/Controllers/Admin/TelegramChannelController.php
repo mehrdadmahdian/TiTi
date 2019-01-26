@@ -48,12 +48,4 @@ class TelegramChannelController extends BaseAdminController
     {
 
     }
-
-    public function getSettingForm()
-    {
-        $telegramChannel = TelegramChannel::find(request()->segments()[2]);
-        $twitterAccounts = Auth::user()->twitterAccounts;
-
-        return view('admin.telegram-channels.setting.form', compact('telegramChannel', 'twitterAccounts'));
-    }
 }

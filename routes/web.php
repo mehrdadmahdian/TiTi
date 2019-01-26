@@ -8,14 +8,15 @@ Route::group(['prefix' => 'admin' , 'as' => 'admin.', 'namespace' => 'admin'], f
     Route::group(['prefix' => 'users' , 'as' => 'users.'], function(){
         Route::get('datatable', 'UserController@datatable')->name('datatable');
     });
-    Route::group(['prefix' => 'telegram_channels' , 'as' => 'telegram_channels.'], function(){
-        Route::get('/{TelegramChannel}/setting/form', 'TelegramChannelController@getSettingForm')->name('setting.showForm');
+    Route::group(['prefix' => 'telegram_channels/setting' , 'as' => 'telegram_channels.setting.'], function(){
+        Route::get('/{id}/form', 'TelegramChannelSettingController@getForm')->name('getForm');
+        Route::post('/{id}/store', 'TelegramChannelSettingController@store')->name('store');
     });
 });
 /*************************************************************************************************/
-Route::get('/test', function () {
+Route::get('/testTwitterObject', function () {
     $setting = [
-        'twitterAccount' => App\Models\TwitterAccount::find(1),
+        'twitterAccount' => App\Models\TwitterAccount::find(4),
         'collector' => [
             'type' => 'timeline',
             'parameters' => [
@@ -60,9 +61,32 @@ Route::get('/test', function () {
     ];
 
     try {
-        $twitterObject =  App\Twitter\TwitterObjectBuilder::build($setting);
+        $twitterObject =  App\TITI\Twitter\TwitterObjectBuilder::build($setting);
         $twitterObject->periodicCall();
     } catch (\Exception $e) {
         return dd($e->getMessage());
     }
+});
+
+Route::get('/testTelegramObject', function () {
+    $setting = [
+        'telegramChannel' => App\Models\TelegramChannel::find(18),
+        'messageGenerator' => [
+            'type' => 'basic',
+        ],'publishableFinder' => [
+            'type' => 'basic',
+        ],
+
+    ];
+
+    try {
+        $telegramObject =  App\TITI\Telegram\TelegramObjectBuilder::build($setting);
+        dd($telegramObject);
+    } catch (\Exception $e) {
+        return dd($e->getMessage());
+    }
+});
+
+Route::get('/testPublisher', function () {
+    dd(\App\TITI\Telegram\Publisher::builder(new \App\Models\TelegramChannel())->publish());
 });

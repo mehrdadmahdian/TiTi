@@ -2,7 +2,7 @@
     <div class="form-group row">
         <label class="col-sm-4 col-form-label">نحوه ی فراخوانی اطلاعات از توییتر</label>
         <div class="col-sm-8">
-            <select type="text" class="form-control select2">
+            <select type="text" class="form-control select2" name="setting[twitter_collector][type]">
                 @foreach(\App\Twitter\Collector\TweetCollectorFactory::getClassMap() as $key => $value)
                     <option value="{{$key}}">{{trans('twitter.collector.type.'.$key)}}</option>
                 @endforeach

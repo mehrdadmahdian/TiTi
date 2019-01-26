@@ -24,7 +24,7 @@
                         <div class="row">
 
                             <div class="col-sm-12">
-                                <form method="get">
+                                <form method="get" id="setting-form">
                                     <div class="tabs-container">
                                         <div class="tabs-right">
                                             <ul class="nav nav-tabs">
@@ -72,7 +72,12 @@
                                     </div>
                                 </form>
                                 <div class="form-group">
-                                    <button class="btn btn-primary btn-sm pull-right" type="submit">ذخیره</button>
+                                    <button id="setting-form-submit" class="btn btn-primary pull-right ladda-button" type="submit" data-style="expand-right">
+                                        <span class="ladda-label"> ذخیره تنظیمات</span>
+                                        <span class="ladda-spinner"></span>
+
+                                    </button>
+
                                 </div>
                             </div>
 
@@ -89,4 +94,6 @@
 @push('scripts')
     @include('admin.telegram-channels.setting.form-script')
 @endpush
+
+
 
